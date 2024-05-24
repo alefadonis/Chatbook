@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import "./globals.css";
 import Chat from "./components/Chat";
+import Providers from "./components/Providers";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -16,11 +17,13 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
-      
-      <body className={inter.className}>
-      <Chat />
-        {children}</body>
+    <html lang="en" className="dark">
+      <Providers>
+        <body className={inter.className}>
+          <Chat />
+          {children}
+        </body>
+      </Providers>
     </html>
   );
 }
